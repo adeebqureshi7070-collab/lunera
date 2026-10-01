@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LUNÉRA — Product</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f7f4ef;color:#151212;font-family:Arial}
+header{background:#151212;color:white;padding:27px 8%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{color:white;text-decoration:none;font:500 30px 'Bodoni Moda';letter-spacing:9px}
+nav{display:flex;gap:25px;align-items:center}
+nav a{color:white;text-decoration:none;font:9px 'Montserrat';letter-spacing:2px;text-transform:uppercase}
+.bag{border:1px solid #ffffffaa;padding:10px 16px}
+.product-page{padding:80px 8% 120px;display:grid;grid-template-columns:1.05fr .95fr;gap:80px}
+.product-photo{height:720px;overflow:hidden;background:#e8e2da}
+.product-photo img{width:100%;height:100%;object-fit:cover}
+.details{padding-top:30px}
+.label{font:9px 'Montserrat';letter-spacing:3px;text-transform:uppercase;opacity:.5;margin-bottom:20px}
+h1{font:400 clamp(45px,5vw,75px)/.98 'Bodoni Moda';margin-bottom:25px}
+.price{font:14px 'Montserrat';letter-spacing:2px;margin-bottom:35px}
+.description{max-width:500px;font:11px/2 'Montserrat';opacity:.65;margin-bottom:40px}
+.option{font:9px 'Montserrat';letter-spacing:2px;text-transform:uppercase;margin-bottom:15px}
+.sizes{display:flex;gap:8px;margin-bottom:35px;flex-wrap:wrap}
+.size{min-width:48px;height:44px;background:none;border:1px solid #1512124d;cursor:pointer}
+.size.active{background:#151212;color:white}
+.quantity{display:flex;width:140px;border:1px solid #1512124d;margin-bottom:20px}
+.quantity button{width:45px;height:42px;border:0;background:none;font-size:18px;cursor:pointer}
+.quantity span{flex:1;display:grid;place-items:center;font:11px 'Montserrat'}
+.actions{display:flex;gap:10px}
+.main{flex:1;padding:16px;border:1px solid #151212;background:#151212;color:white;font:9px 'Montserrat';letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.main.buy{background:#17352b;border-color:#17352b}
+.notes{border-top:1px solid #15121222;margin-top:40px}
+.note{padding:18px 0;border-bottom:1px solid #15121222;font:9px 'Montserrat';letter-spacing:1px}
+.statement{background:#17352b;color:white;text-align:center;padding:110px 8%}
+.statement h2{font:400 clamp(45px,6vw,80px) 'Bodoni Moda';margin-bottom:25px}
+.statement p{font:10px 'Montserrat';letter-spacing:4px}
+footer{background:#151212;color:white;padding:70px 8% 30px}
+.footer-logo{font:500 32px 'Bodoni Moda';letter-spacing:9px;margin-bottom:50px}
+.footer-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:70px}
+.footer-column h4{font:18px 'Bodoni Moda';margin-bottom:20px}
+.footer-column a{display:block;color:white;text-decoration:none;font:11px 'Montserrat';margin:12px 0}
+.footer-bottom{border-top:1px solid #ffffff33;margin-top:50px;padding-top:25px;font:10px 'Montserrat'}
+@media(max-width:850px){
+header{padding:22px 6%}.logo{font-size:23px}nav a:not(.bag){display:none}
+.product-page{display:block;padding:45px 6% 80px}.product-photo{height:500px;margin-bottom:45px}.details{padding:0}.actions{flex-direction:column}
+.footer-columns{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html" class="logo">LUNÉRA</a>
+<nav><a href="product.html">Collection</a><a href="cart.html" class="bag">Bag</a></nav>
+</header>
+
+<section class="product-page">
+
+<div class="product-photo">
+<img id="productImage" src="">
+</div>
+
+<div class="details">
+<div class="label" id="category">LUNÉRA</div>
+<h1 id="name">Product</h1>
+<div class="price" id="price">₹0</div>
+<p class="description" id="description"></p>
+
+<div class="option">Select Size</div>
+<div class="sizes" id="sizes"></div>
+
+<div class="option">Quantity</div>
+<div class="quantity">
+<button onclick="changeQty(-1)">−</button>
+<span id="qty">1</span>
+<button onclick="changeQty(1)">+</button>
+</div>
+
+<div class="actions">
+<button class="main" onclick="addToBag()">Add to Bag</button>
+<button class="main buy" onclick="buyNow()">Buy Now</button>
+</div>
+
+<div class="notes">
+<div class="note">Complimentary delivery on orders above ₹1,999</div>
+<div class="note">Easy returns within 7 days</div>
+<div class="note">Please refer to our size guide before ordering</div>
+</div>
+</div>
+
+</section>
+
+<section class="statement">
+<h2>Elegance in Every Layer.</h2>
+<p>COMFORT · CONFIDENCE · TIMELESS DESIGN</p>
+</section>
+
+<footer>
+<div class="footer-logo">LUNÉRA</div>
+<div class="footer-columns">
+<div class="footer-column"><h4>SHOP</h4><a href="product.html?category=Bras">Bras</a><a href="product.html?category=Panties">Panties</a><a href="product.html?category=Lingerie Sets">Lingerie Sets</a></div>
+<div class="footer-column"><h4>HELP</h4><a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></div>
+<div class="footer-column"><h4>LUNÉRA</h4><a href="index.html">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+</div>
+<div class="footer-bottom">© 2026 LUNÉRA — ELEGANCE IN EVERY LAYER</div>
+</footer>
+
+<script>
+const defaults=[
+{id:"signature-bra",name:"The Signature Bra",category:"Bras · Lace · Signature",price:"₹1,499",sizes:"32, 34, 36, 38, 40",image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1800&q=95",description:"A refined lace essential designed around everyday comfort, confident support and timeless LUNÉRA elegance."},
+{id:"everyday-brief",name:"The Everyday Brief",category:"Panties · Everyday",price:"₹699",sizes:"S, M, L, XL",image:"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1800&q=95",description:"A refined everyday essential designed for comfortable wear and an effortless finish."},
+{id:"signature-set",name:"The Signature Set",category:"Lingerie Sets · Signature",price:"₹2,499",sizes:"32, 34, 36, 38, 40",image:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1800&q=95",description:"A coordinated LUNÉRA set bringing together refined design, comfort and timeless elegance."},
+{id:"soft-form",name:"The Soft Form",category:"Bras · Wireless",price:"₹1,299",sizes:"32, 34, 36, 38, 40",image:"https://images.unsplash.com/photo-1583743814966-8936f37f384c?auto=format&fit=crop&w=1800&q=95",description:"A softly structured everyday bra created for easy movement and comfortable support."},
+{id:"seamless-essential",name:"The Seamless Essential",category:"Essentials · Seamless",price:"₹899",sizes:"S, M, L, XL",image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1800&q=95",description:"A clean seamless essential designed to sit smoothly beneath everyday outfits."},
+{id:"evening-set",name:"The Evening Set",category:"Nightwear · Lounge",price:"₹1,899",sizes:"S, M, L, XL",image:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1800&q=95",description:"An elegant lounge set designed for relaxed evenings and effortless comfort."},
+{id:"lace-frame",name:"The Lace Frame",category:"Bras · Lace",price:"₹1,599",sizes:"32, 34, 36, 38, 40",image:"https://images.unsplash.com/photo-1506629905607-d9a0c1eecb3a?auto=format&fit=crop&w=1800&q=95",description:"A refined lace design combining delicate detailing with comfortable everyday wear."},
+{id:"pure-essential",name:"The Pure Essential",category:"Essentials · Cotton",price:"₹799",sizes:"S, M, L, XL",image:"https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=1800&q=95",description:"A clean cotton essential created for dependable everyday comfort."},
+{id:"bridal-collection",name:"The Bridal Collection",category:"Lingerie Sets · Bridal",price:"₹2,799",sizes:"32, 34, 36, 38, 40",image:"https://images.unsplash.com/photo-1571513722275-4b41940f54b8?auto=format&fit=crop&w=1800&q=95",description:"A carefully designed coordinated collection for special occasions, combining refined details with comfort."}
+];
+
+const products=JSON.parse(localStorage.getItem("luneraProducts"))||defaults;
+const id=new URLSearchParams(location.search).get("product");
+const product=products.find(p=>p.id===id)||products[0];
+
+document.getElementById("productImage").src=product.image;
+document.getElementById("productImage").alt=product.name;
+document.getElementById("name").textContent=product.name;
+document.getElementById("category").textContent=product.category;
+document.getElementById("price").textContent=product.price;
+document.getElementById("description").textContent=product.description;
+
+const sizeList=Array.isArray(product.sizes)?product.sizes:String(product.sizes||"One Size").split(",");
+const sizes=document.getElementById("sizes");
+
+sizeList.forEach((s,i)=>{
+let b=document.createElement("button");
+b.className="size"+(i===0?" active":"");
+b.textContent=s.trim();
+b.onclick=()=>{
+document.querySelectorAll(".size").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+};
+sizes.appendChild(b);
+});
+
+let qty=1;
+function changeQty(n){
+qty=Math.max(1,qty+n);
+document.getElementById("qty").textContent=qty;
+}
+
+function getSize(){
+return document.querySelector(".size.active")?.textContent||"One Size";
+}
+
+function addToBag(){
+let cart=JSON.parse(localStorage.getItem("luneraCart"))||[];
+let size=getSize();
+let existing=cart.find(x=>x.id===product.id&&x.size===size);
+
+if(existing) existing.quantity+=qty;
+else cart.push({
+id:product.id,
+name:product.name,
+price:product.price,
+image:product.image,
+size:size,
+quantity:qty
+});
+
+localStorage.setItem("luneraCart",JSON.stringify(cart));
+alert("Added to your bag.");
+}
+
+function buyNow(){
+addToBag();
+location.href="cart.html";
+}
+</script>
+
+</body>
+</html>
