@@ -8,6 +8,9 @@
 
 <title>LUNÉRA — Elegance in Every Layer</title>
 
+<!-- Browser Tab Logo / Favicon -->
+<link rel="icon" type="image/png" href="/lunera/lunera-logo.png?v=6">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -28,14 +31,24 @@ scroll-behavior:smooth
 body{
 background:#f7f4ef;
 color:#151212;
-font-family:Arial,sans-serif
+font-family:Arial,sans-serif;
+overflow-x:hidden
 }
+
+a{
+-webkit-tap-highlight-color:transparent
+}
+
+/* =========================
+HEADER
+========================= */
 
 header{
 position:absolute;
 top:0;
+left:0;
 width:100%;
-z-index:10;
+z-index:100;
 padding:30px 8%;
 display:flex;
 justify-content:space-between;
@@ -47,7 +60,8 @@ color:white
 color:white;
 text-decoration:none;
 font:500 30px 'Bodoni Moda',serif;
-letter-spacing:9px
+letter-spacing:9px;
+white-space:nowrap
 }
 
 nav{
@@ -60,10 +74,18 @@ nav a,
 .collection-menu span{
 color:white;
 text-decoration:none;
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:2px;
 text-transform:uppercase;
 cursor:pointer
+}
+
+nav a{
+transition:opacity .25s ease
+}
+
+nav a:hover{
+opacity:.65
 }
 
 .collection-menu{
@@ -81,9 +103,10 @@ padding:15px 0;
 opacity:0;
 visibility:hidden;
 transform:translateY(8px);
-transition:.25s;
+transition:.25s ease;
 max-height:400px;
-overflow:auto
+overflow:auto;
+box-shadow:0 15px 40px rgba(0,0,0,.12)
 }
 
 .collection-menu:hover .collection-dropdown{
@@ -96,19 +119,40 @@ transform:none
 display:block;
 color:#151212;
 padding:12px 22px;
-font:9px 'Montserrat';
+font:9px 'Montserrat',sans-serif;
 letter-spacing:2px;
 text-decoration:none
 }
 
 .collection-dropdown a:hover{
-background:#e9e4dc
+background:#e9e4dc;
+opacity:1
 }
 
 .bag{
 border:1px solid rgba(255,255,255,.7);
-padding:10px 16px
+padding:10px 16px;
+position:relative
 }
+
+.bag-count{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-width:18px;
+height:18px;
+margin-left:7px;
+padding:0 5px;
+border-radius:50%;
+background:white;
+color:#151212;
+font:9px 'Montserrat',sans-serif;
+letter-spacing:0
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
 height:100vh;
@@ -132,11 +176,23 @@ background-position:center
 
 .hero-content{
 padding:0 8%;
-color:white
+color:white;
+animation:heroReveal 1.2s ease both
+}
+
+@keyframes heroReveal{
+from{
+opacity:0;
+transform:translateY(25px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
 }
 
 .hero-small{
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:5px;
 text-transform:uppercase;
 opacity:.8;
@@ -144,7 +200,7 @@ margin-bottom:25px
 }
 
 .hero h1{
-font:400 clamp(65px,9vw,125px)/.87 'Bodoni Moda';
+font:400 clamp(65px,9vw,125px)/.87 'Bodoni Moda',serif;
 letter-spacing:-3px;
 margin-bottom:38px
 }
@@ -156,16 +212,22 @@ color:white;
 text-decoration:none;
 border:1px solid rgba(255,255,255,.8);
 padding:14px 22px;
-font:9px 'Montserrat';
+font:9px 'Montserrat',sans-serif;
 letter-spacing:2px;
-text-transform:uppercase
+text-transform:uppercase;
+transition:.3s ease
 }
 
 .hero-button:hover,
 .tile-button:hover{
 background:white;
-color:#151212
+color:#151212;
+transform:translateY(-2px)
 }
+
+/* =========================
+INTRO
+========================= */
 
 .intro{
 padding:150px 8%;
@@ -188,17 +250,21 @@ border-bottom:1px solid rgba(255,255,255,.08)
 .intro h2{
 max-width:1050px;
 margin:auto;
-font:400 clamp(45px,6vw,78px)/1 'Bodoni Moda';
+font:400 clamp(45px,6vw,78px)/1 'Bodoni Moda',serif;
 color:#f7f1e8
 }
 
 .intro p{
 max-width:620px;
 margin:30px auto 0;
-font:11px/1.9 'Montserrat';
+font:11px/1.9 'Montserrat',sans-serif;
 color:#f7f1e8;
 opacity:.7
 }
+
+/* =========================
+COLLECTION
+========================= */
 
 .collection{
 padding:120px 8% 130px;
@@ -211,7 +277,7 @@ margin-bottom:45px
 }
 
 .section-title{
-font:400 clamp(38px,5vw,65px)/1 'Bodoni Moda'
+font:400 clamp(38px,5vw,65px)/1 'Bodoni Moda',serif
 }
 
 .editorial-tile{
@@ -226,7 +292,7 @@ overflow:hidden
 width:100%;
 height:100%;
 object-fit:cover;
-transition:.8s
+transition:.8s ease
 }
 
 .editorial-tile:hover img,
@@ -253,32 +319,37 @@ rgba(0,0,0,.03) 65%
 }
 
 .editorial-number{
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:4px;
 margin-bottom:14px
 }
 
 .editorial-title{
-font:400 clamp(50px,6vw,85px)/.95 'Bodoni Moda';
+font:400 clamp(50px,6vw,85px)/.95 'Bodoni Moda',serif;
 margin-bottom:15px
 }
 
 .editorial-description{
 max-width:480px;
-font:11px/1.7 'Montserrat';
+font:11px/1.7 'Montserrat',sans-serif;
 opacity:.85;
 margin-bottom:25px
 }
 
 .tile-buttons{
 display:flex;
-gap:10px
+gap:10px;
+flex-wrap:wrap
 }
 
 .tile-button.buy{
 background:white;
 color:#151212
 }
+
+/* =========================
+FEATURES
+========================= */
 
 .feature-grid{
 padding:0 8% 130px;
@@ -301,14 +372,18 @@ padding:40px
 }
 
 .feature-overlay span{
-font:9px 'Montserrat';
+font:9px 'Montserrat',sans-serif;
 letter-spacing:3px
 }
 
 .feature-overlay h3{
-font:400 48px 'Bodoni Moda';
+font:400 48px 'Bodoni Moda',serif;
 margin-top:10px
 }
+
+/* =========================
+STATEMENT
+========================= */
 
 .statement{
 background:#17352b;
@@ -318,12 +393,12 @@ padding:115px 8%
 }
 
 .statement h2{
-font:400 clamp(48px,6vw,80px) 'Bodoni Moda';
+font:400 clamp(48px,6vw,80px) 'Bodoni Moda',serif;
 margin-bottom:25px
 }
 
 .statement p{
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:4px;
 opacity:.7
 }
@@ -333,7 +408,7 @@ margin-top:65px
 }
 
 .founder-label{
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:5px;
 margin-bottom:22px;
 opacity:.7
@@ -348,14 +423,18 @@ flex-wrap:wrap
 }
 
 .founder-name{
-font:400 clamp(28px,4vw,48px) 'Bodoni Moda';
+font:400 clamp(28px,4vw,48px) 'Bodoni Moda',serif;
 letter-spacing:2px
 }
 
 .founder-and{
-font:30px 'Cormorant Garamond';
+font:30px 'Cormorant Garamond',serif;
 font-style:italic
 }
+
+/* =========================
+FOOTER
+========================= */
 
 footer{
 background:#151212;
@@ -364,7 +443,7 @@ padding:70px 8% 30px
 }
 
 .footer-logo{
-font:500 32px 'Bodoni Moda';
+font:500 32px 'Bodoni Moda',serif;
 letter-spacing:9px;
 margin-bottom:60px
 }
@@ -376,7 +455,7 @@ gap:80px
 }
 
 .footer-column h4{
-font:18px 'Cormorant Garamond';
+font:18px 'Cormorant Garamond',serif;
 letter-spacing:3px;
 margin-bottom:22px
 }
@@ -385,29 +464,68 @@ margin-bottom:22px
 display:block;
 color:white;
 text-decoration:none;
-font:12px 'Montserrat';
+font:12px 'Montserrat',sans-serif;
 letter-spacing:1.5px;
 margin:12px 0;
-opacity:.8
+opacity:.8;
+transition:.2s
+}
+
+.footer-column a:hover{
+opacity:1;
+transform:translateX(3px)
 }
 
 .footer-bottom{
 border-top:1px solid #ffffff33;
 padding-top:25px;
 margin-top:60px;
-font:10px 'Montserrat';
+font:10px 'Montserrat',sans-serif;
 letter-spacing:2px;
 opacity:.6
 }
 
 .developer-link{
-display:inline-block;
+display:none;
 margin-top:18px;
 color:#777;
 text-decoration:none;
 font-size:9px;
 letter-spacing:2px
 }
+
+/* =========================
+SCROLL TOP
+========================= */
+
+.scroll-top{
+position:fixed;
+right:25px;
+bottom:25px;
+width:42px;
+height:42px;
+border:1px solid rgba(255,255,255,.5);
+background:#151212;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font:16px 'Montserrat',sans-serif;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:90
+}
+
+.scroll-top.show{
+opacity:1;
+visibility:visible
+}
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:850px){
 
@@ -428,12 +546,29 @@ nav>a:not(.bag){
 display:none
 }
 
+.collection-menu span{
+font-size:9px
+}
+
+.collection-dropdown{
+right:-45px;
+width:210px
+}
+
+.bag{
+padding:9px 12px
+}
+
 .hero-content{
 padding:0 6%
 }
 
 .hero h1{
 font-size:65px
+}
+
+.hero-small{
+letter-spacing:3px
 }
 
 .intro{
@@ -454,6 +589,10 @@ height:550px
 
 .editorial-overlay{
 padding:30px
+}
+
+.editorial-title{
+font-size:55px
 }
 
 .feature-grid{
@@ -486,13 +625,69 @@ gap:45px
 font-size:25px
 }
 
+.scroll-top{
+right:15px;
+bottom:15px
+}
+
+}
+
+@media(max-width:500px){
+
+.hero{
+min-height:600px;
+background-position:58% center
+}
+
+.hero h1{
+font-size:57px;
+letter-spacing:-2px
+}
+
+.hero-button{
+padding:13px 17px
+}
+
+.editorial-tile{
+height:500px
+}
+
+.editorial-overlay{
+padding:24px
+}
+
+.editorial-title{
+font-size:48px
+}
+
+.editorial-description{
+font-size:10px
+}
+
+.tile-buttons{
+gap:7px
+}
+
+.tile-button{
+padding:12px 14px
+}
+
+.feature{
+height:400px
+}
+
+.feature-overlay h3{
+font-size:40px
+}
+
 }
 
 </style>
+
 </head>
 
 
-<body>
+<body id="top">
 
 
 <header>
@@ -505,9 +700,7 @@ font-size:25px
 
 <span>The Collection</span>
 
-<div class="collection-dropdown" id="collectionDropdown">
-
-</div>
+<div class="collection-dropdown" id="collectionDropdown"></div>
 
 </div>
 
@@ -515,7 +708,9 @@ font-size:25px
 
 <a href="#contact">Contact</a>
 
-<a href="cart.html" class="bag">Bag</a>
+<a href="cart.html" class="bag">
+Bag <span class="bag-count" id="bagCount">0</span>
+</a>
 
 </nav>
 
@@ -571,7 +766,11 @@ The LUNÉRA Collection
 
 <div class="editorial-tile">
 
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=2400&q=95">
+<img
+src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=2400&q=95"
+alt="LUNÉRA Panties Collection"
+loading="lazy"
+>
 
 <div class="editorial-overlay">
 
@@ -606,7 +805,11 @@ Buy Now
 
 <div class="editorial-tile">
 
-<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2400&q=95">
+<img
+src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2400&q=95"
+alt="LUNÉRA Bras Collection"
+loading="lazy"
+>
 
 <div class="editorial-overlay">
 
@@ -641,7 +844,11 @@ Buy Now
 
 <div class="editorial-tile">
 
-<img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=2400&q=95">
+<img
+src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=2400&q=95"
+alt="LUNÉRA Lingerie Sets"
+loading="lazy"
+>
 
 <div class="editorial-overlay">
 
@@ -680,7 +887,11 @@ Buy Now
 
 <a href="product.html?category=Nightwear" class="feature">
 
-<img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=2400&q=95">
+<img
+src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=2400&q=95"
+alt="LUNÉRA Nightwear"
+loading="lazy"
+>
 
 <div class="feature-overlay">
 
@@ -699,7 +910,11 @@ Nightwear
 
 <a href="product.html?category=Essentials" class="feature">
 
-<img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=2400&q=95">
+<img
+src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=2400&q=95"
+alt="LUNÉRA Essentials"
+loading="lazy"
+>
 
 <div class="feature-overlay">
 
@@ -776,10 +991,10 @@ LUNÉRA
 
 <h4>HELP</h4>
 
-<a href="#">Contact</a>
-<a href="#">Shipping</a>
-<a href="#">Returns</a>
-<a href="#">Size Guide</a>
+<a href="#contact">Contact</a>
+<a href="#contact">Shipping</a>
+<a href="#contact">Returns</a>
+<a href="#contact">Size Guide</a>
 
 </div>
 
@@ -789,9 +1004,9 @@ LUNÉRA
 <h4>LUNÉRA</h4>
 
 <a href="#about">Our Story</a>
-<a href="#">Journal</a>
+<a href="#collection">Collection</a>
+<a href="#top">Back to Top</a>
 <a href="#">Privacy</a>
-<a href="#">Terms</a>
 
 </div>
 
@@ -802,7 +1017,7 @@ LUNÉRA
 
 © 2026 LUNÉRA — ELEGANCE IN EVERY LAYER<br>
 
-<a href="manage.html" class="developer-link">
+<a href="manage.html" class="developer-link" id="manageLink">
 MANAGE
 </a>
 
@@ -811,16 +1026,22 @@ MANAGE
 </footer>
 
 
+<a href="#top" class="scroll-top" id="scrollTop" aria-label="Back to top">
+↑
+</a>
+
+
 <script>
 
+/* =========================
+HERO FROM MANAGEMENT PANEL
+========================= */
 
-const hero =
-localStorage.getItem("luneraHero");
-
+const hero = localStorage.getItem("luneraHero");
 
 if(hero){
 
-document.querySelector(".hero").style.backgroundImage=
+document.querySelector(".hero").style.backgroundImage =
 
 `linear-gradient(
 90deg,
@@ -828,12 +1049,16 @@ rgba(0,0,0,.72),
 rgba(0,0,0,.35),
 rgba(0,0,0,.05)
 ),
-url("${hero}")`;
+url("${hero.replace(/"/g,'\\"')}")`;
 
 }
 
 
-const defaultCategories=[
+/* =========================
+CATEGORIES
+========================= */
+
+const defaultCategories = [
 "Bras",
 "Panties",
 "Lingerie Sets",
@@ -841,13 +1066,29 @@ const defaultCategories=[
 "Essentials"
 ];
 
+let categories = defaultCategories;
 
-const categories=
-JSON.parse(
-localStorage.getItem("luneraCategories")
-) ||
-defaultCategories;
+try{
 
+const storedCategories =
+JSON.parse(localStorage.getItem("luneraCategories"));
+
+if(Array.isArray(storedCategories) && storedCategories.length){
+
+categories = storedCategories;
+
+}
+
+}catch(error){
+
+categories = defaultCategories;
+
+}
+
+
+/* =========================
+SECURITY ESCAPING
+========================= */
 
 function escapeHTML(value){
 
@@ -861,22 +1102,22 @@ return String(value)
 }
 
 
+/* =========================
+RENDER CATEGORIES
+========================= */
+
 function renderCategories(){
 
-document.getElementById("collectionDropdown").innerHTML=
+const dropdown =
+document.getElementById("collectionDropdown");
 
-categories.map(category=>`
-
-<a href="product.html?category=${encodeURIComponent(category)}">
-${escapeHTML(category)}
-</a>
-
-`).join("");
+const footer =
+document.getElementById("footerCategories");
 
 
-document.getElementById("footerCategories").innerHTML=
+if(dropdown){
 
-categories.map(category=>`
+dropdown.innerHTML = categories.map(category => `
 
 <a href="product.html?category=${encodeURIComponent(category)}">
 ${escapeHTML(category)}
@@ -887,7 +1128,125 @@ ${escapeHTML(category)}
 }
 
 
+if(footer){
+
+footer.innerHTML = categories.map(category => `
+
+<a href="product.html?category=${encodeURIComponent(category)}">
+${escapeHTML(category)}
+</a>
+
+`).join("");
+
+}
+
+}
+
+
+/* =========================
+BAG COUNT
+========================= */
+
+function updateBagCount(){
+
+const bagCount =
+document.getElementById("bagCount");
+
+if(!bagCount) return;
+
+let cart = [];
+
+try{
+
+cart =
+JSON.parse(localStorage.getItem("luneraCart")) || [];
+
+}catch(error){
+
+cart = [];
+
+}
+
+const count = cart.reduce(
+(total,item) =>
+total + (Number(item.quantity) || 1),
+0
+);
+
+bagCount.textContent = count;
+
+}
+
+
+/* =========================
+ADMIN LINK
+========================= */
+
+function checkAdminAccess(){
+
+const manageLink =
+document.getElementById("manageLink");
+
+if(!manageLink) return;
+
+if(sessionStorage.getItem("luneraAdmin") === "yes"){
+
+manageLink.style.display = "inline-block";
+
+}else{
+
+manageLink.style.display = "none";
+
+}
+
+}
+
+
+/* =========================
+SCROLL TOP BUTTON
+========================= */
+
+const scrollTop =
+document.getElementById("scrollTop");
+
+window.addEventListener("scroll",function(){
+
+if(window.scrollY > 500){
+
+scrollTop.classList.add("show");
+
+}else{
+
+scrollTop.classList.remove("show");
+
+}
+
+});
+
+
+/* =========================
+INITIALIZE
+========================= */
+
 renderCategories();
+
+updateBagCount();
+
+checkAdminAccess();
+
+
+/* Update bag count if another
+page changes localStorage */
+
+window.addEventListener("storage",function(event){
+
+if(event.key === "luneraCart"){
+
+updateBagCount();
+
+}
+
+});
 
 </script>
 
