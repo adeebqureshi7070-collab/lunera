@@ -314,7 +314,12 @@ grid-template-columns:1fr
 <header>
 
 <a href="index.html" class="logo">
-<img src="./lunera-logo.png" alt="LUNÉRA">
+
+<img
+src="https://adeebqureshi7070-collab.github.io/lunera/lunera-logo.png"
+alt="LUNÉRA"
+>
+
 </a>
 
 <nav>
@@ -338,7 +343,7 @@ Bag <span id="bagCount"></span>
 
 <img
 id="productImage"
-src="./lunera-logo.png"
+src="https://adeebqureshi7070-collab.github.io/lunera/lunera-logo.png"
 alt="LUNÉRA"
 >
 
@@ -505,6 +510,10 @@ Terms
 
 <script>
 
+const LOGO_URL =
+"https://adeebqureshi7070-collab.github.io/lunera/lunera-logo.png";
+
+
 const defaultCategories=[
 "Bras",
 "Panties",
@@ -609,16 +618,16 @@ description:"A carefully designed coordinated collection for special occasions, 
 ];
 
 
-const products=
-JSON.parse(localStorage.getItem("luneraProducts"))||
+const products =
+JSON.parse(localStorage.getItem("luneraProducts")) ||
 JSON.parse(JSON.stringify(defaults));
 
 
-const id=
+const id =
 new URLSearchParams(location.search).get("product");
 
 
-const product=
+const product =
 products.find(p=>String(p.id)===String(id));
 
 
@@ -641,44 +650,46 @@ showNotFound();
 
 }else{
 
-document.getElementById("productImage").src=
-product.image||"./lunera-logo.png";
+document.getElementById("productImage").src =
+product.image || LOGO_URL;
 
-document.getElementById("productImage").alt=
-product.name||"LUNÉRA";
+document.getElementById("productImage").alt =
+product.name || "LUNÉRA";
 
-document.getElementById("name").textContent=
-product.name||"Product";
+document.getElementById("name").textContent =
+product.name || "Product";
 
-document.getElementById("category").textContent=
-product.category||"LUNÉRA";
+document.getElementById("category").textContent =
+product.category || "LUNÉRA";
 
-document.getElementById("price").textContent=
-product.price||"₹0";
+document.getElementById("price").textContent =
+product.price || "₹0";
 
-document.getElementById("description").textContent=
-product.description||"";
+document.getElementById("description").textContent =
+product.description || "";
 
 
-const sizeList=
+const sizeList =
 Array.isArray(product.sizes)
 ?
 product.sizes
 :
-String(product.sizes||"One Size")
+String(product.sizes || "One Size")
 .split(",")
 .map(x=>x.trim())
 .filter(Boolean);
 
 
-const sizes=document.getElementById("sizes");
+const sizes =
+document.getElementById("sizes");
 
 
 sizeList.forEach((s,i)=>{
 
-const b=document.createElement("button");
+const b =
+document.createElement("button");
 
-b.className=
+b.className =
 "size"+(i===0?" active":"");
 
 b.textContent=s;
@@ -687,7 +698,9 @@ b.onclick=()=>{
 
 document
 .querySelectorAll(".size")
-.forEach(x=>x.classList.remove("active"));
+.forEach(x=>
+x.classList.remove("active")
+);
 
 b.classList.add("active");
 
@@ -714,7 +727,7 @@ document.getElementById("qty").textContent=qty;
 
 function getSize(){
 
-return document.querySelector(".size.active")?.textContent||
+return document.querySelector(".size.active")?.textContent ||
 "One Size";
 
 }
@@ -731,24 +744,25 @@ return;
 }
 
 
-let cart=
-JSON.parse(localStorage.getItem("luneraCart"))||[];
+let cart =
+JSON.parse(localStorage.getItem("luneraCart")) || [];
 
 
-const size=getSize();
+const size =
+getSize();
 
 
-const existing=
+const existing =
 cart.find(
 x=>
-String(x.id)===String(product.id)&&
+String(x.id)===String(product.id) &&
 x.size===size
 );
 
 
 if(existing){
 
-existing.quantity+=qty;
+existing.quantity += qty;
 
 }else{
 
@@ -777,7 +791,7 @@ JSON.stringify(cart)
 );
 
 
-document.getElementById("message").textContent=
+document.getElementById("message").textContent =
 "Added to your bag.";
 
 updateBagCount();
@@ -798,18 +812,19 @@ location.href="cart.html";
 
 function updateBagCount(){
 
-const cart=
-JSON.parse(localStorage.getItem("luneraCart"))||[];
+const cart =
+JSON.parse(localStorage.getItem("luneraCart")) || [];
 
 
-const count=
+const count =
 cart.reduce(
-(sum,item)=>sum+(Number(item.quantity)||0),
+(sum,item)=>
+sum+(Number(item.quantity)||0),
 0
 );
 
 
-document.getElementById("bagCount").textContent=
+document.getElementById("bagCount").textContent =
 count ? `(${count})` : "";
 
 }
@@ -817,14 +832,14 @@ count ? `(${count})` : "";
 
 function renderFooter(){
 
-const categories=
+const categories =
 JSON.parse(
 localStorage.getItem("luneraCategories")
-)||
+) ||
 defaultCategories;
 
 
-document.getElementById("footerCategories").innerHTML=
+document.getElementById("footerCategories").innerHTML =
 
 categories.map(c=>`
 
