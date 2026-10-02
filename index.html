@@ -3,16 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>LUNÉRA — Elegance in Every Layer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#f7f4ef;color:#151212;font-family:Arial,sans-serif}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+background:#f7f4ef;
+color:#151212;
+font-family:Arial,sans-serif
+}
+
+
+/* HEADER */
 
 header{
 position:absolute;
@@ -39,7 +57,8 @@ gap:30px;
 align-items:center
 }
 
-nav a,.collection-menu span{
+nav a,
+.collection-menu span{
 color:white;
 text-decoration:none;
 font:10px 'Montserrat';
@@ -90,16 +109,25 @@ border:1px solid rgba(255,255,255,.7);
 padding:10px 16px
 }
 
+
 /* HERO */
+
 .hero{
 height:100vh;
 min-height:650px;
 position:relative;
 display:flex;
 align-items:center;
+
 background-image:
-linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.35),rgba(0,0,0,.05)),
+linear-gradient(
+90deg,
+rgba(0,0,0,.72),
+rgba(0,0,0,.35),
+rgba(0,0,0,.05)
+),
 url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2400&q=95");
+
 background-size:cover;
 background-position:center
 }
@@ -123,7 +151,8 @@ letter-spacing:-3px;
 margin-bottom:38px
 }
 
-.hero-button,.tile-button{
+.hero-button,
+.tile-button{
 display:inline-block;
 color:white;
 text-decoration:none;
@@ -134,15 +163,19 @@ letter-spacing:2px;
 text-transform:uppercase
 }
 
-.hero-button:hover,.tile-button:hover{
+.hero-button:hover,
+.tile-button:hover{
 background:white;
 color:#151212
 }
 
+
 /* INTRO */
+
 .intro{
 padding:150px 8%;
 text-align:center;
+
 background:
 linear-gradient(
 135deg,
@@ -150,7 +183,9 @@ linear-gradient(
 #3b2d26 50%,
 #2f2520 100%
 );
+
 color:white;
+
 border-top:1px solid rgba(255,255,255,.08);
 border-bottom:1px solid rgba(255,255,255,.08)
 }
@@ -170,7 +205,9 @@ color:#f7f1e8;
 opacity:.7
 }
 
+
 /* COLLECTION */
+
 .collection{
 padding:120px 8% 130px;
 background:#f7f4ef;
@@ -192,18 +229,21 @@ position:relative;
 overflow:hidden
 }
 
-.editorial-tile img,.feature img{
+.editorial-tile img,
+.feature img{
 width:100%;
 height:100%;
 object-fit:cover;
 transition:.8s
 }
 
-.editorial-tile:hover img,.feature:hover img{
+.editorial-tile:hover img,
+.feature:hover img{
 transform:scale(1.025)
 }
 
-.editorial-overlay,.feature-overlay{
+.editorial-overlay,
+.feature-overlay{
 position:absolute;
 inset:0;
 display:flex;
@@ -211,7 +251,9 @@ flex-direction:column;
 justify-content:flex-end;
 padding:55px;
 color:white;
-background:linear-gradient(
+
+background:
+linear-gradient(
 0deg,
 rgba(0,0,0,.7),
 rgba(0,0,0,.03) 65%
@@ -246,7 +288,9 @@ background:white;
 color:#151212
 }
 
+
 /* FEATURES */
+
 .feature-grid{
 padding:0 8% 130px;
 display:grid;
@@ -274,7 +318,9 @@ font:400 48px 'Bodoni Moda';
 margin-top:10px
 }
 
+
 /* STATEMENT */
+
 .statement{
 background:#17352b;
 color:white;
@@ -322,7 +368,9 @@ font:30px 'Cormorant Garamond';
 font-style:italic
 }
 
+
 /* FOOTER */
+
 footer{
 background:#151212;
 color:white;
@@ -375,7 +423,9 @@ font-size:9px;
 letter-spacing:2px
 }
 
+
 /* MOBILE */
+
 @media(max-width:850px){
 
 header{
@@ -412,7 +462,8 @@ font-size:48px
 }
 
 .collection{
-padding:90px 6% 90px
+padding:90px 6% 90px;
+background:#f7f4ef
 }
 
 .editorial-tile{
@@ -450,10 +501,15 @@ gap:45px
 }
 
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -478,13 +534,17 @@ gap:45px
 </div>
 
 <a href="#about">About</a>
+
 <a href="#contact">Contact</a>
+
 <a href="cart.html" class="bag">Bag</a>
 
 </nav>
 
 </header>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -509,6 +569,8 @@ Discover LUNÉRA
 </section>
 
 
+<!-- INTRO -->
+
 <section class="intro" id="about">
 
 <h2>
@@ -522,6 +584,8 @@ LUNÉRA creates refined everyday essentials where comfort, confidence and timele
 </section>
 
 
+<!-- COLLECTION -->
+
 <section class="collection" id="collection">
 
 <div class="section-heading">
@@ -532,6 +596,8 @@ The LUNÉRA Collection
 
 </div>
 
+
+<!-- PANTIES -->
 
 <div class="editorial-tile">
 
@@ -568,6 +634,8 @@ Buy Now
 </div>
 
 
+<!-- BRAS -->
+
 <div class="editorial-tile">
 
 <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2400&q=95">
@@ -602,6 +670,8 @@ Buy Now
 
 </div>
 
+
+<!-- LINGERIE SETS -->
 
 <div class="editorial-tile">
 
@@ -640,7 +710,10 @@ Buy Now
 </section>
 
 
+<!-- FEATURES -->
+
 <section class="feature-grid">
+
 
 <a href="product.html?category=Nightwear" class="feature">
 
@@ -679,8 +752,11 @@ Essentials
 
 </a>
 
+
 </section>
 
+
+<!-- STATEMENT -->
 
 <section class="statement">
 
@@ -719,6 +795,8 @@ ADEEB QURESHI
 
 </section>
 
+
+<!-- FOOTER -->
 
 <footer id="contact">
 
@@ -808,6 +886,7 @@ Terms
 
 </div>
 
+
 </div>
 
 
@@ -826,16 +905,17 @@ MANAGE
 
 <script>
 
-const hero=localStorage.getItem("luneraHero");
+const hero = localStorage.getItem("luneraHero");
 
 if(hero){
 
-document.querySelector(".hero").style.backgroundImage=
+document.querySelector(".hero").style.backgroundImage =
 `linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.35),rgba(0,0,0,.05)),url("${hero}")`;
 
 }
 
 </script>
+
 
 </body>
 </html>
