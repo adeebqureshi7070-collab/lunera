@@ -11,7 +11,11 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
 
 body{
 background:#f7f4ef;
@@ -34,12 +38,14 @@ z-index:10
 .logo{
 display:flex;
 align-items:center;
-text-decoration:none
+text-decoration:none;
+height:55px
 }
 
 .logo img{
 width:105px;
-height:auto;
+height:55px;
+object-fit:contain;
 display:block
 }
 
@@ -263,8 +269,13 @@ header{
 padding:22px 6%
 }
 
+.logo{
+height:45px
+}
+
 .logo img{
-width:82px
+width:82px;
+height:45px
 }
 
 nav a:not(.bag){
@@ -303,15 +314,19 @@ grid-template-columns:1fr
 <header>
 
 <a href="index.html" class="logo">
-<img src="lunera-logo.png" alt="LUNÉRA">
+<img src="./lunera-logo.png" alt="LUNÉRA">
 </a>
 
 <nav>
-<a href="product.html">Collection</a>
+
+<a href="product.html">
+Collection
+</a>
 
 <a href="cart.html" class="bag">
 Bag <span id="bagCount"></span>
 </a>
+
 </nav>
 
 </header>
@@ -323,7 +338,7 @@ Bag <span id="bagCount"></span>
 
 <img
 id="productImage"
-src="lunera-logo.png"
+src="./lunera-logo.png"
 alt="LUNÉRA"
 >
 
@@ -440,27 +455,46 @@ LUNÉRA
 
 </div>
 
+
 <div class="footer-column">
 
 <h4>HELP</h4>
 
-<a href="#">Contact</a>
-<a href="#">Shipping</a>
-<a href="#">Returns</a>
+<a href="#">
+Contact
+</a>
+
+<a href="#">
+Shipping
+</a>
+
+<a href="#">
+Returns
+</a>
 
 </div>
+
 
 <div class="footer-column">
 
 <h4>LUNÉRA</h4>
 
-<a href="index.html">Our Story</a>
-<a href="#">Privacy</a>
-<a href="#">Terms</a>
+<a href="index.html">
+Our Story
+</a>
+
+<a href="#">
+Privacy
+</a>
+
+<a href="#">
+Terms
+</a>
 
 </div>
 
 </div>
+
 
 <div class="footer-bottom">
 © 2026 LUNÉRA — ELEGANCE IN EVERY LAYER
@@ -590,7 +624,8 @@ products.find(p=>String(p.id)===String(id));
 
 function showNotFound(){
 
-document.getElementById("name").textContent="Product Not Found";
+document.getElementById("name").textContent=
+"Product Not Found";
 
 document.getElementById("description").textContent=
 "This product is no longer available.";
@@ -607,7 +642,7 @@ showNotFound();
 }else{
 
 document.getElementById("productImage").src=
-product.image||"lunera-logo.png";
+product.image||"./lunera-logo.png";
 
 document.getElementById("productImage").alt=
 product.name||"LUNÉRA";
@@ -766,11 +801,13 @@ function updateBagCount(){
 const cart=
 JSON.parse(localStorage.getItem("luneraCart"))||[];
 
+
 const count=
 cart.reduce(
 (sum,item)=>sum+(Number(item.quantity)||0),
 0
 );
+
 
 document.getElementById("bagCount").textContent=
 count ? `(${count})` : "";
@@ -813,6 +850,7 @@ return String(value??"")
 
 
 renderFooter();
+
 updateBagCount();
 
 </script>
